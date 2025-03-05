@@ -1,4 +1,4 @@
-package com.example.subjectdropdown;
+package com.example.ass1_q1;
 
 import android.os.Bundle;
 import android.view.View;
