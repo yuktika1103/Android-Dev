@@ -30,10 +30,10 @@ public class MainActivity extends AppCompatActivity {
 
         // Define subjects and their syllabus URLs
         syllabusUrls = new HashMap<>();
-        syllabusUrls.put("Mathematics", "https://example.com/mathematics-syllabus");
-        syllabusUrls.put("Physics", "https://example.com/physics-syllabus");
-        syllabusUrls.put("Chemistry", "https://example.com/chemistry-syllabus");
-        syllabusUrls.put("Biology", "https://example.com/biology-syllabus");
+        syllabusUrls.put("Mathematics", "https://sgsits.ac.in/files/downloads/I-Year-Syllabus-SEMA.pdf");
+        syllabusUrls.put("Physics", "https://sgsits.ac.in/images/downloads/2022-PH10006-Physics-syllabus.pdf");
+        syllabusUrls.put("Chemistry", "https://www.sgsits.ac.in/files/BTech_Syllabus_21_22.pdf");
+        syllabusUrls.put("Computer Networks", "https://sgsits.ac.in/files/downloads/5thsem.pdf");
 
         // Populate Spinner
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, syllabusUrls.keySet().toArray(new String[0]));
