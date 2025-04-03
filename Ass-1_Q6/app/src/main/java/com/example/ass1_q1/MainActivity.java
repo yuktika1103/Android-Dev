@@ -1,41 +1,33 @@
-package com.example.ass1_q1;
-
+package com.example.intentapplication;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
+import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 public class MainActivity extends AppCompatActivity {
-
-    EditText editTextName;
-    Button buttonSubmit;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        editTextName = findViewById(R.id.editTextName);
-        buttonSubmit = findViewById(R.id.buttonSubmit);
-
-        buttonSubmit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String name = editTextName.getText().toString().trim();
-
-                if (!name.isEmpty()) {
-                    // Create an intent to navigate to SecondActivity
-                    Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-                    // Pass the name to the second activity
-                    intent.putExtra("userName", name);
-                    startActivity(intent);
-                } else {
-                    editTextName.setError("Please enter your name");
-                }
-            }
-        });
-    }
+ @Override
+ protected void onCreate(Bundle savedInstanceState) {
+ super.onCreate(savedInstanceState);
+ EdgeToEdge.enable(this);
+ setContentView(R.layout.activity_main);
+ ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -
+> {
+ Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+ v.setPadding(systemBars.left, systemBars.top, systemBars.right,
+systemBars.bottom);
+ return insets;
+ });
+ }
+ public void showMessage(View view){
+ Intent iNext = new Intent(MainActivity.this, Result.class);
+ EditText name = findViewById(R.id.name);
+ String s = name.getText().toString();
+ iNext.putExtra("Result", s);
+ startActivity(iNext);
+ }
 }
